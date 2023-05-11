@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3D183D8F2A0D6C28002A0F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183D8E2A0D6C28002A0F07 /* AppDelegate.swift */; };
 		3D183D912A0D6C28002A0F07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183D902A0D6C28002A0F07 /* SceneDelegate.swift */; };
-		3D183D932A0D6C28002A0F07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183D922A0D6C28002A0F07 /* ViewController.swift */; };
 		3D183D962A0D6C28002A0F07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D183D942A0D6C28002A0F07 /* Main.storyboard */; };
 		3D183D992A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D183D972A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld */; };
 		3D183D9B2A0D6C2A002A0F07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D183D9A2A0D6C2A002A0F07 /* Assets.xcassets */; };
@@ -19,6 +18,8 @@
 		3D183DB52A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DB42A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift */; };
 		3D183DC82A0D6D2B002A0F07 /* DessertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DC62A0D6D2B002A0F07 /* DessertTableViewCell.swift */; };
 		3D183DC92A0D6D2B002A0F07 /* DessertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */; };
+		3D183DCB2A0DAF6D002A0F07 /* ListViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */; };
+		3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 		3D183D8B2A0D6C28002A0F07 /* theMealDB API Dessert App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "theMealDB API Dessert App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D183D8E2A0D6C28002A0F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D183D902A0D6C28002A0F07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D183D922A0D6C28002A0F07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D183D952A0D6C28002A0F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D183D982A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = theMealDB_API_Dessert_App.xcdatamodel; sourceTree = "<group>"; };
 		3D183D9A2A0D6C2A002A0F07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		3D183DB42A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMealDB_API_Dessert_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3D183DC62A0D6D2B002A0F07 /* DessertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertTableViewCell.swift; sourceTree = "<group>"; };
 		3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DessertTableViewCell.xib; sourceTree = "<group>"; };
+		3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewController.swift; sourceTree = "<group>"; };
+		3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +148,8 @@
 		3D183DC22A0D6CCD002A0F07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D183D922A0D6C28002A0F07 /* ViewController.swift */,
+				3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */,
+				3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,9 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D183DCB2A0DAF6D002A0F07 /* ListViewTableViewController.swift in Sources */,
 				3D183DC82A0D6D2B002A0F07 /* DessertTableViewCell.swift in Sources */,
-				3D183D932A0D6C28002A0F07 /* ViewController.swift in Sources */,
 				3D183D8F2A0D6C28002A0F07 /* AppDelegate.swift in Sources */,
+				3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */,
 				3D183D992A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld in Sources */,
 				3D183D912A0D6C28002A0F07 /* SceneDelegate.swift in Sources */,
 			);
@@ -490,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44MF3CASSP;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "theMealDB API Dessert App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -519,6 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44MF3CASSP;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "theMealDB API Dessert App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
