@@ -20,6 +20,7 @@
 		3D183DC92A0D6D2B002A0F07 /* DessertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */; };
 		3D183DCB2A0DAF6D002A0F07 /* ListViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */; };
 		3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */; };
+		3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCE2A0DB1FB002A0F07 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DessertTableViewCell.xib; sourceTree = "<group>"; };
 		3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewController.swift; sourceTree = "<group>"; };
 		3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3D183DCE2A0DB1FB002A0F07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				3D183D902A0D6C28002A0F07 /* SceneDelegate.swift */,
 				3D183D9A2A0D6C2A002A0F07 /* Assets.xcassets */,
 				3D183D9C2A0D6C2A002A0F07 /* LaunchScreen.storyboard */,
+				3D183DCE2A0DB1FB002A0F07 /* Constants.swift */,
 				3D183D9F2A0D6C2A002A0F07 /* Info.plist */,
 				3D183D972A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld */,
 			);
@@ -315,6 +318,7 @@
 				3D183DC82A0D6D2B002A0F07 /* DessertTableViewCell.swift in Sources */,
 				3D183D8F2A0D6C28002A0F07 /* AppDelegate.swift in Sources */,
 				3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */,
+				3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */,
 				3D183D992A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld in Sources */,
 				3D183D912A0D6C28002A0F07 /* SceneDelegate.swift in Sources */,
 			);
