@@ -50,12 +50,7 @@ class DessertTableViewCell: UITableViewCell {
     }
     
     func customizeElements() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            whiteBackground.layer.shadowColor = UIColor.white.cgColor
-        } else {
-            whiteBackground.layer.shadowColor = UIColor.black.cgColor
-        }
-        
+        whiteBackground.layer.shadowColor = UIColor.black.cgColor
         whiteBackground.layer.shadowOpacity = 0.6
         whiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
         whiteBackground.layer.shadowRadius = 3

@@ -12,7 +12,7 @@ protocol UpdateFavoriteDelegate: AnyObject {
     func updateFavorite(currentImage: UIImage)
 } //End of protocol
 
-class ListTableViewController: UITableViewController {
+class ListTableViewController: UIViewController {
     
     //MARK: - Properties
     let gradientLayer = CAGradientLayer()
@@ -20,8 +20,9 @@ class ListTableViewController: UITableViewController {
     //var favorites: [Favorite] = []
     
     //MARK: - Outlets
-    @IBOutlet var listTableView: UITableView!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet var backgroundView: UIView!
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -32,8 +33,6 @@ class ListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        animateTitle()
         
         APIController.fetchDesserts { result in
             DispatchQueue.main.async {
@@ -57,34 +56,23 @@ class ListTableViewController: UITableViewController {
     
     //MARK: - Helper Functions
     func setUpGradient() {
-        let backgroundView = UIView(frame: listTableView.bounds)
-        gradientLayer.frame = listTableView.bounds
-        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.orange.cgColor]
+        gradientLayer.frame = backgroundView.bounds
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.purple.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
-        listTableView.backgroundView = backgroundView
-    }
-    
-    func animateTitle() {
-        title = ""
-        var characterIndex = 0.0
-        let titleText = "All Desserts"
-        
-        for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
-                self.title?.append(letter)
-            }
-            characterIndex += 1
-        }
     }
 
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+} //End of class
+
+//MARK: - Table View
+extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         desserts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomDessertCell", for: indexPath) as! DessertTableViewCell
         let dessert = desserts[indexPath.row]
         
@@ -94,11 +82,11 @@ class ListTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "toDetailVC", sender: self)
     }
 
@@ -113,8 +101,8 @@ class ListTableViewController: UITableViewController {
                 //MARK: - TODO - Pass over the idFavorited status here?
         }
     }
-
-} //End of class
+    
+} //End of extension
 
 //MARK: - Update Favorites
 extension ListTableViewController: UpdateFavoriteDelegate {
