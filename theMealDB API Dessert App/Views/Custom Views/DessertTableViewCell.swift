@@ -19,7 +19,7 @@ class DessertTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        addShadow()
+        customizeElements()
     }
 
     //MARK: - Properties
@@ -48,11 +48,15 @@ class DessertTableViewCell: UITableViewCell {
         }
     }
     
-    func addShadow() {
+    func customizeElements() {
         whiteBackground.layer.shadowColor = UIColor.black.cgColor
-        whiteBackground.layer.shadowOpacity = 0.5
-        whiteBackground.layer.shadowOffset = .zero
-        whiteBackground.layer.shadowRadius = 5
+        whiteBackground.layer.shadowOpacity = 0.3
+        whiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
+        whiteBackground.layer.shadowRadius = 3
+        whiteBackground.layer.cornerRadius = 10
+        
+        thumbnailImage.layer.cornerRadius = 10
+        thumbnailImage.clipsToBounds = true
     }
     
 } //End of class

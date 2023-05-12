@@ -15,16 +15,15 @@ class APIController {
     
     //MARK: - Helper Functions
     static func fetchDesserts(completion: @escaping (Result<[ListObject], APIError>) -> Void) {
-        
         guard let listEndpoint = listEndpoint else { return completion(.failure(.invalidURL)) }
-        print("zzz \(listEndpoint)")
+
         URLSession.shared.dataTask(with: listEndpoint) { data, response, error in
             if let error = error {
                 return completion(.failure(.thrownError(error)))
             }
             if let response = response as? HTTPURLResponse {
                 if response.statusCode != 200 {
-                    print("zzz POST STATUS CODE: \(response)")
+                    print("POST STATUS CODE: \(response)")
                 }
             }
             guard let data = data else { return completion(.failure(.noData)) }
@@ -32,7 +31,6 @@ class APIController {
             do {
                 let topLevelArray = try JSONDecoder().decode(topLevelArray.self, from: data)
                 let dataDict = topLevelArray.meals
-                print("zzz \(dataDict)")
                 var arrayOfDesserts: [ListObject] = []
                 
                 for dict in dataDict {
@@ -49,7 +47,6 @@ class APIController {
     }
     
     static func fetchOneDessert(id: String, completion: @escaping (Result<[ListObject], APIError>) -> Void) {
-        
         guard let detailEndpoint = detailEndpoint else { return completion(.failure(.invalidURL)) }
         let finalURL = detailEndpoint.appendingPathExtension(id)
         print("zzz \(finalURL)")
@@ -60,7 +57,7 @@ class APIController {
             }
             if let response = response as? HTTPURLResponse {
                 if response.statusCode != 200 {
-                    print("zzz POST STATUS CODE: \(response)")
+                    print("POST STATUS CODE: \(response)")
                 }
             }
             guard let data = data else { return completion(.failure(.noData)) }
