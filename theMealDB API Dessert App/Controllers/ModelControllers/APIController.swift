@@ -28,13 +28,13 @@ class APIController {
                     print("zzz POST STATUS CODE: \(response)")
                 }
             }
-            
+                
             guard let data = data else { return completion(.failure(.noData)) }
-            
+            //MARK: - TODO - Is failing here.
             do {
                 let topLevelArray = try JSONDecoder().decode(topLevelAray.self, from: data)
                 let dataDict = topLevelArray.children
-                
+                print("zzz \(dataDict)")
                 var arrayOfDesserts: [ListObject] = []
                 
                 for dict in dataDict {

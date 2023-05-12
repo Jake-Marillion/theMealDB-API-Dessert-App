@@ -15,12 +15,14 @@ class DetailViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet var backgroundView: UIView!
+    @IBOutlet weak var heartImageBarButtonItem: UIBarButtonItem!
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBar.tintColor = .purple
+            //MARK: - TODO - Verify
+        //self.navigationController?.navigationBar.tintColor = .purple
     }
     
     //MARK: - Helper Functions

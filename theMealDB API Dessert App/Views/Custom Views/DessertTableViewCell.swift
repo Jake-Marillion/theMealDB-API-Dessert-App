@@ -13,7 +13,8 @@ class DessertTableViewCell: UITableViewCell {
     @IBOutlet weak var whiteBackground: UIView!
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var dessertNameLabel: UILabel!
-
+    @IBOutlet weak var heartImage: UIImageView!
+    
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
