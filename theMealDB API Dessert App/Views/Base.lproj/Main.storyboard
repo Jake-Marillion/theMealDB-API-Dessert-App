@@ -163,6 +163,9 @@
                     <navigationItem key="navigationItem" id="l2e-Nq-g7m">
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="PkC-GT-cJM">
                             <color key="tintColor" name="BrandPurple"/>
+                            <connections>
+                                <action selector="heartBarButtonItemPressed:" destination="yLe-cg-TAh" id="YF9-q3-IdY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

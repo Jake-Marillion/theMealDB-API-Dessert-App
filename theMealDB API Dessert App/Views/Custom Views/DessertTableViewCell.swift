@@ -67,6 +67,14 @@ class DessertTableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         guard let defaultImage: UIImage = UIImage(named: "heart") else { return }
+        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        shakeAnimation.duration = 0.02
+        shakeAnimation.repeatCount = 10
+        shakeAnimation.autoreverses = true
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x - 15, y: heartButton.center.y))
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x + 15, y: heartButton.center.y))
+        
+        heartButton.layer.add(shakeAnimation, forKey: "position")
         delegate?.updateFavorite(currentImage: (heartButton.currentImage ?? defaultImage))
     }
     

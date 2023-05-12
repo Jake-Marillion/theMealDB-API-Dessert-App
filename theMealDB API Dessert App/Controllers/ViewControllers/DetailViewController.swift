@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailViewController: UIViewController {
 
@@ -35,4 +36,19 @@ class DetailViewController: UIViewController {
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
     }
 
+    @IBAction func heartBarButtonItemPressed(_ sender: UIBarButtonItem) {
+        let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        let upSoundId: SystemSoundID = 1004
+        let downSoundId: SystemSoundID = 1003
+        
+        hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
+        if heartImageBarButtonItem.image == UIImage(named: "heart") {
+            AudioServicesPlaySystemSound(upSoundId)
+            //save id to favs and recall array and shake animation?
+        } else {
+            AudioServicesPlaySystemSound(downSoundId)
+            //delete id from favs and reload and shake animation?
+        }
+    }
+    
 } //End of class

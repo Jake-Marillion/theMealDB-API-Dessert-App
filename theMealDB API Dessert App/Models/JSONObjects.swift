@@ -16,3 +16,9 @@ struct ListObject: Decodable {
     let strMealThumb: String
     let idMeal: String
 } //End of struct
+
+struct DetailObject: Decodable {
+    let idMeal: String
+    let strMeal: String
+    //.....
+} //End of struct
