@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--List Table View Controller-->
         <scene sceneID="rT0-S1-2Ee">
             <objects>
-                <tableViewController id="x6L-0r-ci0" sceneMemberID="viewController">
+                <tableViewController id="x6L-0r-ci0" customClass="ListTableViewController" customModule="theMealDB_API_Dessert_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tXq-Pb-JfS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,6 +34,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Zpk-td-ozJ"/>
                     <connections>
+                        <outlet property="listTableView" destination="tXq-Pb-JfS" id="e7O-MN-X9Z"/>
                         <segue destination="yLe-cg-TAh" kind="show" identifier="toDetailVC" id="ctZ-eb-rVA"/>
                     </connections>
                 </tableViewController>
@@ -41,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="1428" y="-354"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="LiI-Ky-BbP">
             <objects>
-                <viewController id="yLe-cg-TAh" sceneMemberID="viewController">
+                <viewController id="yLe-cg-TAh" customClass="DetailViewController" customModule="theMealDB_API_Dessert_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0EG-ff-zpc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,10 +53,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="l2e-Nq-g7m"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="0EG-ff-zpc" id="Ki4-Ru-zbp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyQ-rf-t9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2215" y="-354"/>
+            <point key="canvasLocation" x="2210" y="-354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kA5-YE-ge3">

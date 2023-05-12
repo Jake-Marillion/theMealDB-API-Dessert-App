@@ -77,5 +77,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-}
+} //End of class
 

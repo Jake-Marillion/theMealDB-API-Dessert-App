@@ -18,9 +18,11 @@
 		3D183DB52A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DB42A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift */; };
 		3D183DC82A0D6D2B002A0F07 /* DessertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DC62A0D6D2B002A0F07 /* DessertTableViewCell.swift */; };
 		3D183DC92A0D6D2B002A0F07 /* DessertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */; };
-		3D183DCB2A0DAF6D002A0F07 /* ListViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */; };
+		3D183DCB2A0DAF6D002A0F07 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCA2A0DAF6D002A0F07 /* ListTableViewController.swift */; };
 		3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */; };
 		3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCE2A0DB1FB002A0F07 /* Constants.swift */; };
+		3D183DD12A0DCAC8002A0F07 /* JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */; };
+		3D183DD52A0DCDD1002A0F07 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD42A0DCDD1002A0F07 /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +58,11 @@
 		3D183DB42A0D6C2A002A0F07 /* theMealDB_API_Dessert_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMealDB_API_Dessert_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3D183DC62A0D6D2B002A0F07 /* DessertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertTableViewCell.swift; sourceTree = "<group>"; };
 		3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DessertTableViewCell.xib; sourceTree = "<group>"; };
-		3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewController.swift; sourceTree = "<group>"; };
+		3D183DCA2A0DAF6D002A0F07 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3D183DCE2A0DB1FB002A0F07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjects.swift; sourceTree = "<group>"; };
+		3D183DD42A0DCDD1002A0F07 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +155,8 @@
 		3D183DC22A0D6CCD002A0F07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D183DCA2A0DAF6D002A0F07 /* ListViewTableViewController.swift */,
-				3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */,
+				3D183DD32A0DCDB5002A0F07 /* ModelControllers */,
+				3D183DD22A0DCDAD002A0F07 /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 		3D183DC32A0D6CD9002A0F07 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +185,23 @@
 				3D183DC72A0D6D2B002A0F07 /* DessertTableViewCell.xib */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		3D183DD22A0DCDAD002A0F07 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D183DCA2A0DAF6D002A0F07 /* ListTableViewController.swift */,
+				3D183DCC2A0DAF80002A0F07 /* DetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3D183DD32A0DCDB5002A0F07 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D183DD42A0DCDD1002A0F07 /* APIController.swift */,
+			);
+			path = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,12 +336,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D183DCB2A0DAF6D002A0F07 /* ListViewTableViewController.swift in Sources */,
+				3D183DCB2A0DAF6D002A0F07 /* ListTableViewController.swift in Sources */,
 				3D183DC82A0D6D2B002A0F07 /* DessertTableViewCell.swift in Sources */,
 				3D183D8F2A0D6C28002A0F07 /* AppDelegate.swift in Sources */,
 				3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */,
 				3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */,
 				3D183D992A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld in Sources */,
+				3D183DD12A0DCAC8002A0F07 /* JSONObjects.swift in Sources */,
+				3D183DD52A0DCDD1002A0F07 /* APIController.swift in Sources */,
 				3D183D912A0D6C28002A0F07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
