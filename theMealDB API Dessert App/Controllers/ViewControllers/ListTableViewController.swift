@@ -50,6 +50,11 @@ class ListTableViewController: UITableViewController {
         
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setUpGradient()
+    }
+    
     //MARK: - Helper Functions
     func setUpGradient() {
         let backgroundView = UIView(frame: listTableView.bounds)
@@ -87,6 +92,10 @@ class ListTableViewController: UITableViewController {
         cell.listObject = dessert
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

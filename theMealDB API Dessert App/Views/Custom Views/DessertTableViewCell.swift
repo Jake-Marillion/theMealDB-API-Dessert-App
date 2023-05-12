@@ -56,7 +56,7 @@ class DessertTableViewCell: UITableViewCell {
             whiteBackground.layer.shadowColor = UIColor.black.cgColor
         }
         
-        whiteBackground.layer.shadowOpacity = 0.3
+        whiteBackground.layer.shadowOpacity = 0.6
         whiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
         whiteBackground.layer.shadowRadius = 3
         whiteBackground.layer.cornerRadius = 10
