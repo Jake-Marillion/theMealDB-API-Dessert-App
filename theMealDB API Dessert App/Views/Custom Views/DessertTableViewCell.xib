@@ -30,46 +30,53 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Title)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-fP-4Zd">
-                                <rect key="frame" x="130" y="51" width="218" height="18"/>
+                                <rect key="frame" x="130" y="51" width="228" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rvs-GG-Fcp">
-                                <rect key="frame" x="358" y="37" width="50" height="47"/>
-                                <color key="tintColor" name="BrandPurple"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mJ-oA-3a8">
+                                <rect key="frame" x="368" y="40" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mVn-YI-HQU"/>
-                                    <constraint firstAttribute="width" constant="50" id="naf-Wr-mFi"/>
+                                    <constraint firstAttribute="height" constant="40" id="bvi-ri-GQa"/>
+                                    <constraint firstAttribute="width" constant="40" id="vBz-1F-iyQ"/>
                                 </constraints>
-                            </imageView>
+                                <color key="tintColor" name="BrandPurple"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s0u-gx-mVL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rvs-GG-Fcp" secondAttribute="trailing" constant="10" id="2xJ-ma-D43"/>
+                            <constraint firstItem="2mJ-oA-3a8" firstAttribute="centerY" secondItem="bRN-DU-Lqd" secondAttribute="centerY" id="0TB-8X-jbD"/>
                             <constraint firstItem="9OQ-u2-t58" firstAttribute="leading" secondItem="bRN-DU-Lqd" secondAttribute="leading" constant="10" id="Bjw-gZ-URl"/>
                             <constraint firstAttribute="bottom" secondItem="9OQ-u2-t58" secondAttribute="bottom" constant="10" id="Knr-mH-6bL"/>
+                            <constraint firstItem="2mJ-oA-3a8" firstAttribute="leading" secondItem="ed4-fP-4Zd" secondAttribute="trailing" constant="10" id="SRK-vv-da6"/>
                             <constraint firstItem="ed4-fP-4Zd" firstAttribute="leading" secondItem="9OQ-u2-t58" secondAttribute="trailing" constant="20" id="cQO-1u-BHc"/>
-                            <constraint firstItem="rvs-GG-Fcp" firstAttribute="leading" secondItem="ed4-fP-4Zd" secondAttribute="trailing" constant="10" id="qbi-Ce-Qdf"/>
-                            <constraint firstItem="rvs-GG-Fcp" firstAttribute="centerY" secondItem="bRN-DU-Lqd" secondAttribute="centerY" id="rIx-DF-OFR"/>
+                            <constraint firstAttribute="trailing" secondItem="2mJ-oA-3a8" secondAttribute="trailing" constant="10" id="kHn-4q-ijI"/>
                             <constraint firstItem="9OQ-u2-t58" firstAttribute="top" secondItem="bRN-DU-Lqd" secondAttribute="top" constant="10" id="xJ0-SL-0gg"/>
                             <constraint firstItem="ed4-fP-4Zd" firstAttribute="centerY" secondItem="bRN-DU-Lqd" secondAttribute="centerY" id="zIt-sv-hvu"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="bRN-DU-Lqd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="8TE-UO-Cqf"/>
                     <constraint firstItem="bRN-DU-Lqd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="I09-t6-CNI"/>
                     <constraint firstAttribute="trailing" secondItem="bRN-DU-Lqd" secondAttribute="trailing" constant="10" id="Kjg-Ue-c0G"/>
+                    <constraint firstItem="bRN-DU-Lqd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="L6W-aC-baj"/>
                     <constraint firstAttribute="bottom" secondItem="bRN-DU-Lqd" secondAttribute="bottom" constant="8" id="RP5-8V-cSW"/>
-                    <constraint firstItem="bRN-DU-Lqd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cop-Gd-O7v"/>
-                    <constraint firstItem="bRN-DU-Lqd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="wJ4-oD-XFi"/>
                     <constraint firstItem="bRN-DU-Lqd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ywc-Ox-Jgy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dessertNameLabel" destination="ed4-fP-4Zd" id="OrV-Qz-UdH"/>
-                <outlet property="heartImage" destination="rvs-GG-Fcp" id="r14-2X-kqn"/>
+                <outlet property="heartButton" destination="2mJ-oA-3a8" id="WMZ-vz-qAT"/>
                 <outlet property="thumbnailImage" destination="9OQ-u2-t58" id="b8X-lK-Oq2"/>
                 <outlet property="whiteBackground" destination="bRN-DU-Lqd" id="Gvs-bB-HpR"/>
             </connections>

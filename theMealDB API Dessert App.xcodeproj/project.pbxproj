@@ -23,6 +23,8 @@
 		3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DCE2A0DB1FB002A0F07 /* Constants.swift */; };
 		3D183DD12A0DCAC8002A0F07 /* JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */; };
 		3D183DD52A0DCDD1002A0F07 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD42A0DCDD1002A0F07 /* APIController.swift */; };
+		3D183DD72A0DFAAE002A0F07 /* FavoriteConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD62A0DFAAE002A0F07 /* FavoriteConvenience.swift */; };
+		3D183DD92A0DFB24002A0F07 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D183DD82A0DFB24002A0F07 /* CoreDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		3D183DCE2A0DB1FB002A0F07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjects.swift; sourceTree = "<group>"; };
 		3D183DD42A0DCDD1002A0F07 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		3D183DD62A0DFAAE002A0F07 /* FavoriteConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConvenience.swift; sourceTree = "<group>"; };
+		3D183DD82A0DFB24002A0F07 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				3D183DD02A0DCAC8002A0F07 /* JSONObjects.swift */,
+				3D183DD62A0DFAAE002A0F07 /* FavoriteConvenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				3D183DD42A0DCDD1002A0F07 /* APIController.swift */,
+				3D183DD82A0DFB24002A0F07 /* CoreDataController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -342,9 +348,11 @@
 				3D183DCD2A0DAF80002A0F07 /* DetailViewController.swift in Sources */,
 				3D183DCF2A0DB1FB002A0F07 /* Constants.swift in Sources */,
 				3D183D992A0D6C28002A0F07 /* theMealDB_API_Dessert_App.xcdatamodeld in Sources */,
+				3D183DD92A0DFB24002A0F07 /* CoreDataController.swift in Sources */,
 				3D183DD12A0DCAC8002A0F07 /* JSONObjects.swift in Sources */,
 				3D183DD52A0DCDD1002A0F07 /* APIController.swift in Sources */,
 				3D183D912A0D6C28002A0F07 /* SceneDelegate.swift in Sources */,
+				3D183DD72A0DFAAE002A0F07 /* FavoriteConvenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

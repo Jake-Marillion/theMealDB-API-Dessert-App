@@ -7,22 +7,32 @@
 
 import UIKit
 
+protocol UpdateFavoriteDelegate: AnyObject {
+    func updateFavorite(currentImage: UIImage)
+} //End of protocol
+
 class ListTableViewController: UITableViewController {
     
     //MARK: - Properties
     let gradientLayer = CAGradientLayer()
     var desserts: [ListObject] = []
+    //var favorites: [Favorite] = []
     
     //MARK: - Outlets
     @IBOutlet var listTableView: UITableView!
     
     
     //MARK: - Lifecycle Functions
+    override func viewDidLoad() {
+        listTableView.delegate = self
+        listTableView.dataSource = self
+        listTableView.register(UINib(nibName: "DessertTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomDessertCell")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Desserts!"
-        listTableView.register(UINib(nibName: "DessertTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomDessertCell")
+        animateTitle()
         
         APIController.fetchDesserts { result in
             DispatchQueue.main.async {
@@ -49,6 +59,19 @@ class ListTableViewController: UITableViewController {
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
         listTableView.backgroundView = backgroundView
     }
+    
+    func animateTitle() {
+        title = ""
+        var characterIndex = 0.0
+        let titleText = "All Desserts"
+        
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
+                self.title?.append(letter)
+            }
+            characterIndex += 1
+        }
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +82,7 @@ class ListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomDessertCell", for: indexPath) as! DessertTableViewCell
         let dessert = desserts[indexPath.row]
         
+        cell.delegate = self
         cell.listObject = dessert
 
         return cell
@@ -76,7 +100,21 @@ class ListTableViewController: UITableViewController {
             let dessertIdToSend = desserts[indexPath.row].idMeal
             
             destinationVC.currentDessertId = dessertIdToSend
+                //MARK: - TODO - Pass over the idFavorited status here
         }
     }
 
 } //End of class
+
+//MARK: - Update Favorites
+extension ListTableViewController: UpdateFavoriteDelegate {
+    //how to get the id for the cell that was tapped??
+    func updateFavorite(currentImage: UIImage) {
+        if currentImage == UIImage(named: "heart") {
+            //save id to favs and reload
+        } else {
+            //delete id from favs and reload
+        }
+    }
+    
+} //End of extension

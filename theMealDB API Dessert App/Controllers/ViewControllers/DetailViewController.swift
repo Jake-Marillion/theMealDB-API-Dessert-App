@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
 
     //MARK: - Properties
     var currentDessertId: String?
+    //var currentDessert: []?
     let gradientLayer = CAGradientLayer()
     
     //MARK: - Outlets

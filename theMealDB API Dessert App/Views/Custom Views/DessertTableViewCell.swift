@@ -13,7 +13,7 @@ class DessertTableViewCell: UITableViewCell {
     @IBOutlet weak var whiteBackground: UIView!
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var dessertNameLabel: UILabel!
-    @IBOutlet weak var heartImage: UIImageView!
+    @IBOutlet weak var heartButton: UIButton!
     
     //MARK: - Lifecycle
     override func awakeFromNib() {
@@ -23,6 +23,7 @@ class DessertTableViewCell: UITableViewCell {
     }
 
     //MARK: - Properties
+    weak var delegate: UpdateFavoriteDelegate?
     var listObject: ListObject? {
         didSet {
             updateCell()
@@ -49,7 +50,12 @@ class DessertTableViewCell: UITableViewCell {
     }
     
     func customizeElements() {
-        whiteBackground.layer.shadowColor = UIColor.black.cgColor
+        if self.traitCollection.userInterfaceStyle == .dark {
+            whiteBackground.layer.shadowColor = UIColor.white.cgColor
+        } else {
+            whiteBackground.layer.shadowColor = UIColor.black.cgColor
+        }
+        
         whiteBackground.layer.shadowOpacity = 0.3
         whiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
         whiteBackground.layer.shadowRadius = 3
@@ -57,6 +63,11 @@ class DessertTableViewCell: UITableViewCell {
         
         thumbnailImage.layer.cornerRadius = 10
         thumbnailImage.clipsToBounds = true
+    }
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        guard let defaultImage: UIImage = UIImage(named: "heart") else { return }
+        delegate?.updateFavorite(currentImage: (heartButton.currentImage ?? defaultImage))
     }
     
 } //End of class
