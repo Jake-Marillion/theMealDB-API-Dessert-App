@@ -183,7 +183,6 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="BrandPurple"/>
-                        <color key="barTintColor" name="BrandPurple"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="BrandPurple"/>
                         </textAttributes>

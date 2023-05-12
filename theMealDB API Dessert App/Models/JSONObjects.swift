@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct topLevelAray: Decodable {
-    let children: [ListObject]
+struct topLevelArray: Decodable {
+    let meals: [ListObject]
 } //End of struct
 
 struct ListObject: Decodable {

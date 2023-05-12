@@ -17,23 +17,21 @@ class APIController {
     static func fetchDesserts(completion: @escaping (Result<[ListObject], APIError>) -> Void) {
         
         guard let listEndpoint = listEndpoint else { return completion(.failure(.invalidURL)) }
-        
+        print("zzz \(listEndpoint)")
         URLSession.shared.dataTask(with: listEndpoint) { data, response, error in
             if let error = error {
                 return completion(.failure(.thrownError(error)))
             }
-            
             if let response = response as? HTTPURLResponse {
                 if response.statusCode != 200 {
                     print("zzz POST STATUS CODE: \(response)")
                 }
             }
-                
             guard let data = data else { return completion(.failure(.noData)) }
-            //MARK: - TODO - Is failing here.
+
             do {
-                let topLevelArray = try JSONDecoder().decode(topLevelAray.self, from: data)
-                let dataDict = topLevelArray.children
+                let topLevelArray = try JSONDecoder().decode(topLevelArray.self, from: data)
+                let dataDict = topLevelArray.meals
                 print("zzz \(dataDict)")
                 var arrayOfDesserts: [ListObject] = []
                 
@@ -60,18 +58,16 @@ class APIController {
             if let error = error {
                 return completion(.failure(.thrownError(error)))
             }
-            
             if let response = response as? HTTPURLResponse {
                 if response.statusCode != 200 {
                     print("zzz POST STATUS CODE: \(response)")
                 }
             }
-            
             guard let data = data else { return completion(.failure(.noData)) }
             
             do {
-                let topLevelArray = try JSONDecoder().decode(topLevelAray.self, from: data)
-                let dataDict = topLevelArray.children
+                let topLevelArray = try JSONDecoder().decode(topLevelArray.self, from: data)
+                let dataDict = topLevelArray.meals
                 
                 var arrayOfDesserts: [ListObject] = []
                 

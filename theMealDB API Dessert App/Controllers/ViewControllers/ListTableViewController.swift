@@ -22,7 +22,7 @@ class ListTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.title = "Desserts!"
-        listTableView.register(UINib(nibName: "CustomDessertCell", bundle: nil), forCellReuseIdentifier: "CustomDessertCell")
+        listTableView.register(UINib(nibName: "DessertTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomDessertCell")
         
         APIController.fetchDesserts { result in
             DispatchQueue.main.async {
