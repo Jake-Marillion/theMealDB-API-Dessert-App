@@ -73,6 +73,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="tintColor" name="BrandPurple"/>
             <connections>
                 <outlet property="dessertNameLabel" destination="ed4-fP-4Zd" id="OrV-Qz-UdH"/>
                 <outlet property="heartButton" destination="2mJ-oA-3a8" id="WMZ-vz-qAT"/>

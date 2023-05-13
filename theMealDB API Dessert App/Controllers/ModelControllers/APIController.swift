@@ -72,6 +72,7 @@ class APIController {
                     let dessert: ListObject = ListObject(strMeal: dict.strMeal, strMealThumb: dict.strMealThumb, idMeal: dict.idMeal)
                     arrayOfDesserts.append(dessert)
                 }
+                arrayOfDesserts.sorted(by: { $0.strMeal > $1.strMeal })
 
                 return completion(.success(arrayOfDesserts))
             } catch {
