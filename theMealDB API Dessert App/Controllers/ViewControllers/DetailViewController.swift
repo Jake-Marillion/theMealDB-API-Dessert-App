@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
         self.navigationController?.navigationBar.backItem?.title = "Desserts"
-        self.navigationController?.navigationBar.layer.opacity = 0.7
+        self.navigationController?.navigationBar.layer.opacity = 0.8
         
         if isFavorite == true {
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -119,7 +119,13 @@ class DetailViewController: UIViewController {
         let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
+        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        shakeAnimation.duration = 0.1
+        shakeAnimation.repeatCount = 1
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y + 10))
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
         
+        heartButton.layer.add(shakeAnimation, forKey: "position")
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if isFavorite == true {
             AudioServicesPlaySystemSound(downSoundId)

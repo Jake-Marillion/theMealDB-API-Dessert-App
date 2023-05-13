@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DessertTableViewCell: UITableViewCell {
     
@@ -33,11 +34,11 @@ class DessertTableViewCell: UITableViewCell {
     //MARK: - Helper Functions
     func updateCell() {
         guard let listObject = listObject else { return }
-        let id = listObject.strMealThumb
+        let thumbnailId = listObject.strMealThumb
         
         dessertNameLabel.text = listObject.strMeal
         
-        APIController.fetchThumbnailFor(thumbnailId: id) { result in
+        APIController.fetchThumbnailFor(thumbnailId: thumbnailId) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let thumbnail):
@@ -62,17 +63,30 @@ class DessertTableViewCell: UITableViewCell {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        guard let defaultImage: UIImage = UIImage(named: "heart") else { return }
+        guard let defaultImage: UIImage = UIImage(systemName: "heart") else { return }
+        let upSoundId: SystemSoundID = 1004
+        let downSoundId: SystemSoundID = 1003
         let shakeAnimation = CABasicAnimation(keyPath: "position")
-        shakeAnimation.duration = 0.05
-        shakeAnimation.repeatCount = 10
-        shakeAnimation.autoreverses = true
-        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x - 10, y: heartButton.center.y))
-        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x + 10, y: heartButton.center.y))
+        shakeAnimation.duration = 0.1
+        shakeAnimation.repeatCount = 1
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y + 10))
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
         
         heartButton.layer.add(shakeAnimation, forKey: "position")
         
-            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then had off the id for save or delete?
+        if heartButton.currentImage == UIImage(systemName: "heart.fill") {
+            AudioServicesPlaySystemSound(downSoundId)
+            //play shake animation?
+            CoreDataController.deleteFavorite(id: "")
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            AudioServicesPlaySystemSound(upSoundId)
+            //play shake animation?
+            let newFavObject: Favorite = Favorite(id: "")
+            CoreDataController.saveFavorite()
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then had off the id for save or delete or just do it all here?  How do I get the current ID here????
         delegate?.updateFavorite(currentImage: (heartButton.currentImage ?? defaultImage))
     }
     

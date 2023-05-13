@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 protocol UpdateFavoriteDelegate: AnyObject {
     func updateFavorite(currentImage: UIImage)
@@ -109,16 +108,11 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
 extension ListTableViewController: UpdateFavoriteDelegate {
     //how to get the id for the cell that was tapped??
     func updateFavorite(currentImage: UIImage) {
-        let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-        let upSoundId: SystemSoundID = 1004
-        let downSoundId: SystemSoundID = 1003
         
-        hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
+            //MARK: - TODO - Change this to save??
         if currentImage == UIImage(systemName: "heart") {
-            AudioServicesPlaySystemSound(upSoundId)
             //save id to favs and recall array and shake animation?
         } else {
-            AudioServicesPlaySystemSound(downSoundId)
             //delete id from favs and reload and shake animation?
         }
     }
