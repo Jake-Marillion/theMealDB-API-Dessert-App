@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var nameWhiteBackground: UIView!
     @IBOutlet weak var mealImageView: UIImageView!
+    @IBOutlet weak var ingedientsWhiteBackground: UIView!
+    @IBOutlet weak var instructionsWhiteBackground: UIView!
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,18 @@ class DetailViewController: UIViewController {
         nameWhiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
         nameWhiteBackground.layer.shadowRadius = 3
         nameWhiteBackground.layer.cornerRadius = 10
+        
+        ingedientsWhiteBackground.layer.shadowColor = UIColor.black.cgColor
+        ingedientsWhiteBackground.layer.shadowOpacity = 0.6
+        ingedientsWhiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
+        ingedientsWhiteBackground.layer.shadowRadius = 3
+        ingedientsWhiteBackground.layer.cornerRadius = 10
+        
+        instructionsWhiteBackground.layer.shadowColor = UIColor.black.cgColor
+        instructionsWhiteBackground.layer.shadowOpacity = 0.6
+        instructionsWhiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
+        instructionsWhiteBackground.layer.shadowRadius = 3
+        instructionsWhiteBackground.layer.cornerRadius = 10
         
         mealImageView.layer.cornerRadius = 10
         mealImageView.clipsToBounds = true
