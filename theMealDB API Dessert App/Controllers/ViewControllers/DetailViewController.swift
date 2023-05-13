@@ -129,7 +129,7 @@ class DetailViewController: UIViewController {
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if isFavorite == true {
             AudioServicesPlaySystemSound(downSoundId)
-            CoreDataController.deleteFavorite(fav: Favorite(id: currentDessertId ?? ""))
+            CoreDataController.deleteFavorite(id: currentDessertId ?? "")
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
             isFavorite = false
         } else {

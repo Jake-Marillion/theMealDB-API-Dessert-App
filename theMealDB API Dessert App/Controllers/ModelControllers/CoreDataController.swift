@@ -50,9 +50,12 @@ class CoreDataController {
         }
     }
     
-    static func deleteFavorite(fav: Favorite) {
-        context.delete(fav)
-        saveFavorite()
+    static func deleteFavorite(id: String) {
+        let favDict = (try? CoreDataController.context.fetch(fetchRequestForAll)) ?? []
+        if let objectToDelete = favDict.first(where: { $0.id == id }) {
+            context.delete(objectToDelete)
+            saveFavorite()
+        }
     }
     
 } //End of class

@@ -47,7 +47,6 @@ class ListTableViewController: UIViewController {
             }
         }
         
-            //MARK: - TODO - Fetch Favorites and reload table view
         favorites = CoreDataController.fetchAllFavorites()
         print("zzzz \(favorites)")
         listTableView.reloadData()

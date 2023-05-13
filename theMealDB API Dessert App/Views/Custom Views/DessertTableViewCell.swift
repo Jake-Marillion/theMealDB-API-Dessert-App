@@ -76,7 +76,7 @@ class DessertTableViewCell: UITableViewCell {
         
         if heartButton.currentImage == UIImage(systemName: "heart.fill") {
             AudioServicesPlaySystemSound(downSoundId)
-            CoreDataController.deleteFavorite(fav: Favorite(id: ""))
+            CoreDataController.deleteFavorite(id: "")
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
         } else {
             AudioServicesPlaySystemSound(upSoundId)
