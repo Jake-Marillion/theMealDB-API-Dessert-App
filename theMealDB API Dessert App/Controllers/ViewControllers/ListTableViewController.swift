@@ -8,7 +8,7 @@
 import UIKit
 
 protocol UpdateFavoriteDelegate: AnyObject {
-    func updateFavorite(currentImage: UIImage)
+    func updateFavoritesArray(id: String)
 } //End of protocol
 
 class ListTableViewController: UIViewController {
@@ -16,7 +16,7 @@ class ListTableViewController: UIViewController {
     //MARK: - Properties
     let gradientLayer = CAGradientLayer()
     var desserts: [ListObject] = []
-    //var favorites: [Favorite] = []
+    var favorites: [String] = []
     
     //MARK: - Outlets
     @IBOutlet weak var listTableView: UITableView!
@@ -46,6 +46,8 @@ class ListTableViewController: UIViewController {
                 }
             }
         }
+        
+            //MARK: - TODO - Fetch Favorites and reload table view
         
     }
     
@@ -97,8 +99,12 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
                   let destinationVC = segue.destination as? DetailViewController else { return }
             let dessertIdToSend = desserts[indexPath.row].idMeal
             
+            if favorites.contains(dessertIdToSend) {
+                destinationVC.isFavorite = true
+            } else {
+                destinationVC.isFavorite = false
+            }
             destinationVC.currentDessertId = dessertIdToSend
-                //MARK: - TODO - Pass over the idFavorited status here?
         }
     }
     
@@ -106,15 +112,9 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
 
 //MARK: - Update Favorites
 extension ListTableViewController: UpdateFavoriteDelegate {
-    //how to get the id for the cell that was tapped??
-    func updateFavorite(currentImage: UIImage) {
-        
-            //MARK: - TODO - Change this to save??
-        if currentImage == UIImage(systemName: "heart") {
-            //save id to favs and recall array and shake animation?
-        } else {
-            //delete id from favs and reload and shake animation?
-        }
+    
+    func updateFavoritesArray(id: String) {
+        favorites.append(id)
     }
     
 } //End of extension

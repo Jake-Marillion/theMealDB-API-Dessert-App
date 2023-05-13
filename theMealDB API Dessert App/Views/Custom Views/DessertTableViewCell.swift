@@ -86,8 +86,8 @@ class DessertTableViewCell: UITableViewCell {
             CoreDataController.saveFavorite()
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
-            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then had off the id for save or delete or just do it all here?  How do I get the current ID here????
-        delegate?.updateFavorite(currentImage: (heartButton.currentImage ?? defaultImage))
+            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then hand off the id for save or delete or just do it all here?  How do I get the current ID here??  Once known replace empty strings Jake.
+        delegate?.updateFavoritesArray(id: "")
     }
     
 } //End of class
