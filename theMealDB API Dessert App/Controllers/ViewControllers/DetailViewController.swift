@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
         guard let currentDessert = currentDessertArray?.first else { return }
         
         mealNameLabel.text = currentDessert.strMeal
-        //ingredientsTextView.text = currentDessert.strInstructions
+        //ingredientsTextView.text = currentDessert.strIngredient1
         instructionsTextView.text = currentDessert.strInstructions
         APIController.fetchThumbnailFor(thumbnailId: currentDessert.strMealThumb) { result in
             DispatchQueue.main.async {
@@ -113,13 +113,16 @@ class DetailViewController: UIViewController {
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
         
+            //MARK: - TODO - This is not working on the first tap.
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if heartButton.currentImage == UIImage(systemName: "heart") {
             AudioServicesPlaySystemSound(upSoundId)
-            //save id to favs and recall array and shake animation?
+            //save id to favs and play shake animation?
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
             AudioServicesPlaySystemSound(downSoundId)
-            //delete id from favs and reload and shake animation?
+            //delete id from favs and play shake animation?
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
     

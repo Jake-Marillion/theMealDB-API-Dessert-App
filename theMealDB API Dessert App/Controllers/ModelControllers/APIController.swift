@@ -63,14 +63,12 @@ class APIController {
             
             do {
                 let topLevelArray = try JSONDecoder().decode(topLevelDetailArray.self, from: data)
-                let dataDict = topLevelArray.meals
+                let dessert = topLevelArray.meals.first
                 
                 var arrayOfDesserts: [DetailObject] = []
                 
-                for dict in dataDict {
-                    let dessert: DetailObject = DetailObject(idMeal: dict.idMeal, strMeal: dict.strMeal, strInstructions: dict.strInstructions, strMealThumb: dict.strMealThumb)
-                    arrayOfDesserts.append(dessert)
-                }
+                print("zzz \(dessert)")
+                try arrayOfDesserts.append(dessert ?? DetailObject(from: Decoder.self as! Decoder))
 
                 return completion(.success(arrayOfDesserts))
             } catch {
