@@ -185,7 +185,7 @@
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-ZQ-i0q">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-ZQ-i0q">
                                                                         <rect key="frame" x="12" y="46.333333333333371" width="329" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -246,8 +246,11 @@
                         <outlet property="backgroundView" destination="0EG-ff-zpc" id="Ki4-Ru-zbp"/>
                         <outlet property="heartButton" destination="FeH-aO-7ZZ" id="eHM-w8-viS"/>
                         <outlet property="ingedientsWhiteBackground" destination="tk2-LJ-1i2" id="Ybo-I7-p5z"/>
+                        <outlet property="ingredientsLabel" destination="hbJ-5u-7P0" id="20d-4n-Vn4"/>
+                        <outlet property="instructionsLabel" destination="l8H-ZQ-i0q" id="5LV-OE-q2B"/>
                         <outlet property="instructionsWhiteBackground" destination="LGe-Fp-DeJ" id="4z5-nG-Jex"/>
-                        <outlet property="mealImageView" destination="Kl1-4F-KcX" id="xzs-07-0ud"/>
+                        <outlet property="mealImageView" destination="Kl1-4F-KcX" id="FJv-mC-k3Q"/>
+                        <outlet property="mealNameLabel" destination="QyN-71-jYv" id="O48-hG-SfE"/>
                         <outlet property="nameWhiteBackground" destination="wpj-dc-1Xs" id="hpA-8o-hyt"/>
                     </connections>
                 </viewController>
@@ -263,6 +266,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3lz-9A-dCi">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BrandDarkOrange"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -277,6 +281,9 @@
     <resources>
         <image name="book.circle" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <namedColor name="BrandDarkOrange">
+            <color red="1" green="0.50590115790000001" blue="0.036116108299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BrandLightOrange">
             <color red="0.99751228089999999" green="0.71446996929999995" blue="0.053844012320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

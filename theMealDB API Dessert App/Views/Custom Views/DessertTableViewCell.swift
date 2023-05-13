@@ -33,10 +33,11 @@ class DessertTableViewCell: UITableViewCell {
     //MARK: - Helper Functions
     func updateCell() {
         guard let listObject = listObject else { return }
+        let id = listObject.strMealThumb
         
         dessertNameLabel.text = listObject.strMeal
         
-        APIController.fetchThumbnailFor(listObject: listObject) { result in
+        APIController.fetchThumbnailFor(thumbnailId: id) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let thumbnail):

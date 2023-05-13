@@ -46,10 +46,9 @@ class APIController {
         }.resume()
     }
     
-    static func fetchOneDessert(id: String, completion: @escaping (Result<[ListObject], APIError>) -> Void) {
-        guard let detailEndpoint = detailEndpoint else { return completion(.failure(.invalidURL)) }
-        let finalURL = detailEndpoint.appendingPathExtension(id)
-        print("zzz \(finalURL)")
+    static func fetchOneDessert(id: String, completion: @escaping (Result<[DetailObject], APIError>) -> Void) {
+        guard let detailEndpoint = detailEndpoint,
+              let finalURL = URL(string: "\(detailEndpoint)\(id)") else { return completion(.failure(.invalidURL)) }
         
         URLSession.shared.dataTask(with: finalURL) { data, response, error in
             if let error = error {
@@ -63,16 +62,15 @@ class APIController {
             guard let data = data else { return completion(.failure(.noData)) }
             
             do {
-                let topLevelArray = try JSONDecoder().decode(topLevelArray.self, from: data)
+                let topLevelArray = try JSONDecoder().decode(topLevelDetailArray.self, from: data)
                 let dataDict = topLevelArray.meals
                 
-                var arrayOfDesserts: [ListObject] = []
+                var arrayOfDesserts: [DetailObject] = []
                 
                 for dict in dataDict {
-                    let dessert: ListObject = ListObject(strMeal: dict.strMeal, strMealThumb: dict.strMealThumb, idMeal: dict.idMeal)
+                    let dessert: DetailObject = DetailObject(idMeal: dict.idMeal, strMeal: dict.strMeal, strInstructions: dict.strInstructions, strMealThumb: dict.strMealThumb)
                     arrayOfDesserts.append(dessert)
                 }
-                arrayOfDesserts.sorted(by: { $0.strMeal > $1.strMeal })
 
                 return completion(.success(arrayOfDesserts))
             } catch {
@@ -82,9 +80,9 @@ class APIController {
         }.resume()
     }
     
-    static func fetchThumbnailFor(listObject: ListObject, completion: @escaping (Result<UIImage, APIError>) -> Void) {
-        guard let thumbnailURL = URL(string: listObject.strMealThumb) else { return completion(.failure(.invalidURL)) }
-        
+    static func fetchThumbnailFor(thumbnailId: String, completion: @escaping (Result<UIImage, APIError>) -> Void) {
+        guard let thumbnailURL = URL(string: thumbnailId) else { return completion(.failure(.invalidURL)) }
+            
         URLSession.shared.dataTask(with: thumbnailURL) { data, response, error in
             if let error = error {
                 return completion(.failure(.thrownError(error)))

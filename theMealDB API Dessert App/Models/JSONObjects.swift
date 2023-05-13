@@ -17,8 +17,13 @@ struct ListObject: Decodable {
     let idMeal: String
 } //End of struct
 
+struct topLevelDetailArray: Decodable {
+    let meals: [DetailObject]
+} //End of struct
+
 struct DetailObject: Decodable {
     let idMeal: String
     let strMeal: String
-    //.....
+    let strInstructions: String
+    let strMealThumb: String
 } //End of struct

@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     //MARK: - Properties
     var currentDessertId: String?
-    //var currentDessert: []?
+    var currentDessertArray: [DetailObject]?
     let gradientLayer = CAGradientLayer()
     
     //MARK: - Outlets
@@ -22,6 +22,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var ingedientsWhiteBackground: UIView!
     @IBOutlet weak var instructionsWhiteBackground: UIView!
+    @IBOutlet weak var mealNameLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +35,20 @@ class DetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
         self.navigationController?.navigationBar.backItem?.title = "Desserts"
+        
+        APIController.fetchOneDessert(id: currentDessertId ?? "") { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let desserts):
+                    self.currentDessertArray = desserts
+                    self.assignValues()
+                    
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                }
+            }
+        }
+        print("zzz \(currentDessertArray)")
     }
     
     override func viewWillLayoutSubviews() {
@@ -40,6 +58,26 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: - Helper Functions
+    func assignValues() {
+        guard let currentDessert = currentDessertArray?.first else { return }
+        
+        mealNameLabel.text = currentDessert.strMeal
+        //ingredientsLabel.text = currentDessert.
+        instructionsLabel.text = currentDessert.strInstructions
+        APIController.fetchThumbnailFor(thumbnailId: currentDessert.strMealThumb) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let thumbnail):
+                    self.mealImageView.image = thumbnail
+                case .failure(let error):
+                    self.mealImageView.image = UIImage(systemName: "photo.on.rectangle")
+                    print("zzz Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                }
+            }
+        }
+        
+    }
+    
     func setUpGradient() {
         gradientLayer.frame = backgroundView.bounds
         gradientLayer.colors = [UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.purple.cgColor]
