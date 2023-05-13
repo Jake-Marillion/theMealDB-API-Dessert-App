@@ -23,18 +23,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ingedientsWhiteBackground: UIView!
     @IBOutlet weak var instructionsWhiteBackground: UIView!
     @IBOutlet weak var mealNameLabel: UILabel!
-    @IBOutlet weak var ingredientsLabel: UILabel!
-    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var instructionsTextView: UITextView!
     
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-            //MARK: - TODO - Fix this
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
         self.navigationController?.navigationBar.backItem?.title = "Desserts"
+        self.navigationController?.navigationBar.layer.opacity = 0.7
         
         APIController.fetchOneDessert(id: currentDessertId ?? "") { result in
             DispatchQueue.main.async {
@@ -48,7 +48,6 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-        print("zzz \(currentDessertArray)")
     }
     
     override func viewWillLayoutSubviews() {
@@ -62,8 +61,8 @@ class DetailViewController: UIViewController {
         guard let currentDessert = currentDessertArray?.first else { return }
         
         mealNameLabel.text = currentDessert.strMeal
-        //ingredientsLabel.text = currentDessert.
-        instructionsLabel.text = currentDessert.strInstructions
+        //ingredientsTextView.text = currentDessert.strInstructions
+        instructionsTextView.text = currentDessert.strInstructions
         APIController.fetchThumbnailFor(thumbnailId: currentDessert.strMealThumb) { result in
             DispatchQueue.main.async {
                 switch result {
