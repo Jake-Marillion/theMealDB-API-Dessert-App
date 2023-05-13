@@ -64,13 +64,15 @@ class DessertTableViewCell: UITableViewCell {
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         guard let defaultImage: UIImage = UIImage(named: "heart") else { return }
         let shakeAnimation = CABasicAnimation(keyPath: "position")
-        shakeAnimation.duration = 0.02
+        shakeAnimation.duration = 0.05
         shakeAnimation.repeatCount = 10
         shakeAnimation.autoreverses = true
-        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x - 15, y: heartButton.center.y))
-        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x + 15, y: heartButton.center.y))
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x - 10, y: heartButton.center.y))
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x + 10, y: heartButton.center.y))
         
         heartButton.layer.add(shakeAnimation, forKey: "position")
+        
+            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then had off the id for save or delete?
         delegate?.updateFavorite(currentImage: (heartButton.currentImage ?? defaultImage))
     }
     

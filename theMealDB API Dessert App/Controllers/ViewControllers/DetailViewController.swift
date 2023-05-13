@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     //MARK: - Properties
     var currentDessertId: String?
     var currentDessertArray: [DetailObject]?
+    var isFavorite: Bool = false
     let gradientLayer = CAGradientLayer()
     
     //MARK: - Outlets
@@ -35,6 +36,12 @@ class DetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .purple
         self.navigationController?.navigationBar.backItem?.title = "Desserts"
         self.navigationController?.navigationBar.layer.opacity = 0.7
+        
+        if isFavorite == true {
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
         
         APIController.fetchOneDessert(id: currentDessertId ?? "") { result in
             DispatchQueue.main.async {
@@ -113,17 +120,22 @@ class DetailViewController: UIViewController {
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
         
-            //MARK: - TODO - This is not working on the first tap.
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
-        if heartButton.currentImage == UIImage(systemName: "heart") {
-            AudioServicesPlaySystemSound(upSoundId)
-            //save id to favs and play shake animation?
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
+        if isFavorite == true {
             AudioServicesPlaySystemSound(downSoundId)
-            //delete id from favs and play shake animation?
+            //play shake animation?
+            CoreDataController.deleteFavorite(id: currentDessertId ?? "")
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            isFavorite = false
+        } else {
+            AudioServicesPlaySystemSound(upSoundId)
+            //play shake animation?
+            let newFavObject: Favorite = Favorite(id: currentDessertId ?? "")
+            CoreDataController.saveFavorite()
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            isFavorite = true
         }
+        
     }
     
 } //End of class

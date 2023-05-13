@@ -71,8 +71,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0t-ju-Eh0" userLabel="Meal Image">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kl1-4F-KcX">
-                                                                <rect key="frame" x="96.666666666666686" y="1" width="200" height="198.66666666666666"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kl1-4F-KcX">
+                                                                <rect key="frame" x="96.666666666666686" y="0.0" width="200" height="200"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" name="BrandLightOrange"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="200" id="WCb-gd-THh"/>
@@ -279,7 +280,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book.circle" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <namedColor name="BrandLightOrange">
             <color red="0.99751228089999999" green="0.71446996929999995" blue="0.053844012320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
