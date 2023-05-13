@@ -48,6 +48,9 @@ class ListTableViewController: UIViewController {
         }
         
             //MARK: - TODO - Fetch Favorites and reload table view
+        favorites = CoreDataController.fetchAllFavorites()
+        print("zzzz \(favorites)")
+        listTableView.reloadData()
         
     }
     
@@ -64,6 +67,7 @@ class ListTableViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
 
 } //End of class
 
@@ -80,6 +84,12 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.delegate = self
         cell.listObject = dessert
+        
+        if favorites.contains(dessert.idMeal) {
+            cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
 
         return cell
     }

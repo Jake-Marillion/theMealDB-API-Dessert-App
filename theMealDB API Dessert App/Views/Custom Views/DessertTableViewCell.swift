@@ -76,12 +76,10 @@ class DessertTableViewCell: UITableViewCell {
         
         if heartButton.currentImage == UIImage(systemName: "heart.fill") {
             AudioServicesPlaySystemSound(downSoundId)
-            //play shake animation?
-            CoreDataController.deleteFavorite(id: "")
+            CoreDataController.deleteFavorite(fav: Favorite(id: ""))
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
         } else {
             AudioServicesPlaySystemSound(upSoundId)
-            //play shake animation?
             let newFavObject: Favorite = Favorite(id: "")
             CoreDataController.saveFavorite()
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

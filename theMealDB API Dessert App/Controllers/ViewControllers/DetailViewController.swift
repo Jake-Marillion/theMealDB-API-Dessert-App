@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
         self.navigationController?.navigationBar.backItem?.title = "Desserts"
@@ -129,13 +129,11 @@ class DetailViewController: UIViewController {
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if isFavorite == true {
             AudioServicesPlaySystemSound(downSoundId)
-            //play shake animation?
-            CoreDataController.deleteFavorite(id: currentDessertId ?? "")
+            CoreDataController.deleteFavorite(fav: Favorite(id: currentDessertId ?? ""))
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
             isFavorite = false
         } else {
             AudioServicesPlaySystemSound(upSoundId)
-            //play shake animation?
             let newFavObject: Favorite = Favorite(id: currentDessertId ?? "")
             CoreDataController.saveFavorite()
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

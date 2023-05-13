@@ -20,9 +20,27 @@ class CoreDataController {
         })
         return container
     }()
+    
     static var context: NSManagedObjectContext { persistentContainer.viewContext }
     
-    //MARK: - Favorites
+    static var fetchRequestForAll: NSFetchRequest<Favorite> = {
+        let request = NSFetchRequest <Favorite>(entityName: "Favorite")
+        request.predicate = NSPredicate(value: true)
+        return request
+    }()
+    
+    //MARK: - Helper Functions
+    static func fetchAllFavorites() -> [String] {
+        let favDict = (try? CoreDataController.context.fetch(fetchRequestForAll)) ?? []
+        var favArray: [String] = []
+        
+        for fav in favDict {
+            favArray.append(fav.id ?? "")
+        }
+        
+        return favArray
+    }
+    
     static func saveFavorite() {
         do {
             try context.save()
@@ -32,9 +50,8 @@ class CoreDataController {
         }
     }
     
-    static func deleteFavorite(id: String) {
-        let favToDelete: Favorite = Favorite(id: id)
-        context.delete(favToDelete)
+    static func deleteFavorite(fav: Favorite) {
+        context.delete(fav)
         saveFavorite()
     }
     
