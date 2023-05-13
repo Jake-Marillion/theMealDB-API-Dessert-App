@@ -36,9 +36,9 @@ class DetailViewController: UIViewController {
     //MARK: - Helper Functions
     func setUpGradient() {
         gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.orange.cgColor, UIColor.orange.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.purple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
     }
 
@@ -46,9 +46,7 @@ class DetailViewController: UIViewController {
         let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
-        guard let emptyHeart: UIImage = UIImage(named: "heart"),
-              let filledHeart: UIImage = UIImage(systemName: "heart.fill") else { return }
-
+        
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if heartButton.currentImage == UIImage(systemName: "heart") {
             AudioServicesPlaySystemSound(upSoundId)

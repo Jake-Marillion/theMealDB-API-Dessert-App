@@ -57,7 +57,7 @@ class ListTableViewController: UIViewController {
     //MARK: - Helper Functions
     func setUpGradient() {
         gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.purple.cgColor]
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.purple.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
@@ -113,7 +113,7 @@ extension ListTableViewController: UpdateFavoriteDelegate {
         let downSoundId: SystemSoundID = 1003
         
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
-        if currentImage == UIImage(named: "heart") {
+        if currentImage == UIImage(systemName: "heart") {
             AudioServicesPlaySystemSound(upSoundId)
             //save id to favs and recall array and shake animation?
         } else {
