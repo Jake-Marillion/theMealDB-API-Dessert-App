@@ -20,7 +20,6 @@ class ListTableViewController: UIViewController {
     //var favorites: [Favorite] = []
     
     //MARK: - Outlets
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet var backgroundView: UIView!
     
@@ -33,6 +32,8 @@ class ListTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
         
         APIController.fetchDesserts { result in
             DispatchQueue.main.async {

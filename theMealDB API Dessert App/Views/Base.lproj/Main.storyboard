@@ -44,7 +44,6 @@
                     <connections>
                         <outlet property="backgroundView" destination="A5d-ND-XVG" id="97Q-vs-stD"/>
                         <outlet property="listTableView" destination="BTV-o2-ZSb" id="yt6-EH-hdx"/>
-                        <outlet property="titleLabel" destination="U2N-ck-eCh" id="Dqe-BV-eRI"/>
                         <segue destination="yLe-cg-TAh" kind="show" identifier="toDetailVC" id="BYv-0A-afr"/>
                     </connections>
                 </viewController>
@@ -64,10 +63,10 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-Vz-BUg" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1125"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vH3-pF-4cI">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0t-ju-Eh0" userLabel="Meal Image">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
@@ -104,25 +103,39 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XuK-0F-MGi" userLabel="Meal Name">
-                                                        <rect key="frame" x="0.0" y="220" width="393" height="50"/>
+                                                        <rect key="frame" x="0.0" y="220" width="393" height="65"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Meal Name)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mZ-xP-32U">
-                                                                <rect key="frame" x="10" y="11.999999999999998" width="373" height="26.333333333333329"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-dc-1Xs">
+                                                                <rect key="frame" x="20" y="0.0" width="353" height="65"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Meal Name)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyN-71-jYv">
+                                                                        <rect key="frame" x="12" y="5" width="329" height="55"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="QyN-71-jYv" firstAttribute="centerY" secondItem="wpj-dc-1Xs" secondAttribute="centerY" id="ByJ-Se-K5r"/>
+                                                                    <constraint firstItem="QyN-71-jYv" firstAttribute="leading" secondItem="wpj-dc-1Xs" secondAttribute="leading" constant="12" id="C5j-1B-voG"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="QyN-71-jYv" secondAttribute="bottom" constant="5" id="TYy-tY-Hjg"/>
+                                                                    <constraint firstItem="QyN-71-jYv" firstAttribute="centerX" secondItem="wpj-dc-1Xs" secondAttribute="centerX" id="t9Q-nO-f1X"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="QyN-71-jYv" secondAttribute="trailing" constant="12" id="y9V-wl-jXf"/>
+                                                                    <constraint firstItem="QyN-71-jYv" firstAttribute="top" secondItem="wpj-dc-1Xs" secondAttribute="top" constant="5" id="yX9-04-d1b"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="2mZ-xP-32U" firstAttribute="centerY" secondItem="XuK-0F-MGi" secondAttribute="centerY" id="1Zk-xc-ft1"/>
-                                                            <constraint firstAttribute="height" constant="50" id="TKr-mn-xDs"/>
-                                                            <constraint firstAttribute="trailing" secondItem="2mZ-xP-32U" secondAttribute="trailing" constant="10" id="ZAa-bL-MpO"/>
-                                                            <constraint firstItem="2mZ-xP-32U" firstAttribute="centerX" secondItem="XuK-0F-MGi" secondAttribute="centerX" id="jrh-Dg-2Uq"/>
-                                                            <constraint firstItem="2mZ-xP-32U" firstAttribute="leading" secondItem="XuK-0F-MGi" secondAttribute="leading" constant="10" id="sVt-tO-uxS"/>
+                                                            <constraint firstAttribute="bottom" secondItem="wpj-dc-1Xs" secondAttribute="bottom" id="MVQ-pt-g36"/>
+                                                            <constraint firstAttribute="height" constant="65" id="TKr-mn-xDs"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wpj-dc-1Xs" secondAttribute="trailing" constant="20" id="ZOy-TP-6Jj"/>
+                                                            <constraint firstItem="wpj-dc-1Xs" firstAttribute="leading" secondItem="XuK-0F-MGi" secondAttribute="leading" constant="20" id="nUD-ll-htN"/>
+                                                            <constraint firstItem="wpj-dc-1Xs" firstAttribute="top" secondItem="XuK-0F-MGi" secondAttribute="top" id="xtn-lY-K5M"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1u-SP-r61" userLabel="Meal Ingredients">
-                                                        <rect key="frame" x="0.0" y="290" width="393" height="400"/>
+                                                        <rect key="frame" x="0.0" y="305" width="393" height="400"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients &amp; Quantities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-Bz-ak6">
                                                                 <rect key="frame" x="82.333333333333329" y="9.9999999999999982" width="228.33333333333337" height="26.333333333333329"/>
@@ -147,7 +160,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOS-ca-EDj" userLabel="Meal Instructions">
-                                                        <rect key="frame" x="0.0" y="710" width="393" height="400"/>
+                                                        <rect key="frame" x="0.0" y="725" width="393" height="400"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5N-Gi-DV8">
                                                                 <rect key="frame" x="138" y="9.9999999999999982" width="117" height="26.333333333333329"/>
@@ -207,6 +220,8 @@
                     <connections>
                         <outlet property="backgroundView" destination="0EG-ff-zpc" id="Ki4-Ru-zbp"/>
                         <outlet property="heartButton" destination="FeH-aO-7ZZ" id="eHM-w8-viS"/>
+                        <outlet property="mealImageView" destination="Kl1-4F-KcX" id="xzs-07-0ud"/>
+                        <outlet property="nameWhiteBackground" destination="wpj-dc-1Xs" id="hpA-8o-hyt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyQ-rf-t9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

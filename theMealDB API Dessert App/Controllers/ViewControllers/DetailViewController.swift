@@ -18,19 +18,23 @@ class DetailViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var nameWhiteBackground: UIView!
+    @IBOutlet weak var mealImageView: UIImageView!
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-            //MARK: - TODO - Verify
+            //MARK: - TODO - Fix this
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
-        self.navigationController?.navigationBar.topItem?.title = "All Recipies"
+        self.navigationController?.navigationBar.backItem?.title = "Desserts"
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setUpGradient()
+        setUpViews()
     }
     
     //MARK: - Helper Functions
@@ -40,6 +44,17 @@ class DetailViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func setUpViews() {
+        nameWhiteBackground.layer.shadowColor = UIColor.black.cgColor
+        nameWhiteBackground.layer.shadowOpacity = 0.6
+        nameWhiteBackground.layer.shadowOffset = CGSize(width: 3, height: 3)
+        nameWhiteBackground.layer.shadowRadius = 3
+        nameWhiteBackground.layer.cornerRadius = 10
+        
+        mealImageView.layer.cornerRadius = 10
+        mealImageView.clipsToBounds = true
     }
 
     @IBAction func heartButtonPressed(_ sender: UIButton) {
