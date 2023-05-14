@@ -44,7 +44,7 @@ class DessertTableViewCell: UITableViewCell {
                 case .success(let thumbnail):
                     self.thumbnailImage.image = thumbnail
                 case .failure(let error):
-                    self.thumbnailImage.image = UIImage(systemName: "photo.on.rectangle")
+                    self.thumbnailImage.image = UIImage(systemName: K.defaultImageName)
                     print("zzz Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
                 }
             }
@@ -63,25 +63,25 @@ class DessertTableViewCell: UITableViewCell {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        guard let defaultImage: UIImage = UIImage(systemName: "heart") else { return }
+        guard let defaultImage: UIImage = UIImage(systemName: K.heart) else { return }
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
-        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        let shakeAnimation = CABasicAnimation(keyPath: K.keyPath)
         shakeAnimation.duration = 0.1
         shakeAnimation.repeatCount = 1
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y + 10))
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
-        heartButton.layer.add(shakeAnimation, forKey: "position")
-        let name = dessertNameLabel.text ?? ""
+        heartButton.layer.add(shakeAnimation, forKey: K.keyPath)
+        let name = dessertNameLabel.text ?? K.emptyString
         
-        if heartButton.currentImage == UIImage(systemName: "heart.fill") {
+        if heartButton.currentImage == UIImage(systemName: K.filledHeart) {
             AudioServicesPlaySystemSound(downSoundId)
             delegate?.removeFromFavoritesArray(name: name)
-            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
         } else {
             AudioServicesPlaySystemSound(upSoundId)
             delegate?.addToFavoritesArray(name: name)
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)
         }
     }
     

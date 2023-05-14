@@ -34,22 +34,21 @@ class DetailViewController: UIViewController {
 
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .purple
-        self.navigationController?.navigationBar.backItem?.title = "Desserts"
+        self.navigationController?.navigationBar.backItem?.title = K.navBarTitle
         self.navigationController?.navigationBar.layer.opacity = 0.8
         
         if isFavorite == true {
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)
         } else {
-            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
         }
         
-        APIController.fetchOneDessert(id: currentDessertId ?? "") { result in
+        APIController.fetchOneDessert(id: currentDessertId ?? K.emptyString) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let desserts):
                     self.currentDessertArray = desserts
                     self.assignValues()
-                    print("zzz \(self.currentDessertArray)")
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
                 }
@@ -66,68 +65,68 @@ class DetailViewController: UIViewController {
     //MARK: - Helper Functions
     func assignValues() {
         guard let currentDessert = currentDessertArray?.first else { return }
-        ingredientsTextView.text = ""
+        ingredientsTextView.text = K.emptyString
         mealNameLabel.text = currentDessert.strMeal
         
         if currentDessert.strIngredient1?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\(currentDessert.strIngredient1 ?? "") - \(currentDessert.strMeasure1 ?? "")"
+            ingredientsTextView.text += "\(currentDessert.strIngredient1 ?? K.emptyString) - \(currentDessert.strMeasure1 ?? K.emptyString)"
         }
         if currentDessert.strIngredient2?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient2 ?? "") - \(currentDessert.strMeasure2 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient2 ?? K.emptyString) - \(currentDessert.strMeasure2 ?? K.emptyString)"
         }
         if currentDessert.strIngredient3?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient3 ?? "") - \(currentDessert.strMeasure3 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient3 ?? K.emptyString) - \(currentDessert.strMeasure3 ?? K.emptyString)"
         }
         if currentDessert.strIngredient4?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient4 ?? "") - \(currentDessert.strMeasure4 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient4 ?? K.emptyString) - \(currentDessert.strMeasure4 ?? K.emptyString)"
         }
         if currentDessert.strIngredient5?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient5 ?? "") - \(currentDessert.strMeasure5 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient5 ?? K.emptyString) - \(currentDessert.strMeasure5 ?? K.emptyString)"
         }
         if currentDessert.strIngredient6?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient6 ?? "") - \(currentDessert.strMeasure6 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient6 ?? K.emptyString) - \(currentDessert.strMeasure6 ?? K.emptyString)"
         }
         if currentDessert.strIngredient7?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient7 ?? "") - \(currentDessert.strMeasure7 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient7 ?? K.emptyString) - \(currentDessert.strMeasure7 ?? K.emptyString)"
         }
         if currentDessert.strIngredient8?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient8 ?? "") - \(currentDessert.strMeasure8 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient8 ?? K.emptyString) - \(currentDessert.strMeasure8 ?? K.emptyString)"
         }
         if currentDessert.strIngredient9?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient9 ?? "") - \(currentDessert.strMeasure9 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient9 ?? K.emptyString) - \(currentDessert.strMeasure9 ?? K.emptyString)"
         }
         if currentDessert.strIngredient10?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient10 ?? "") - \(currentDessert.strMeasure10 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient10 ?? K.emptyString) - \(currentDessert.strMeasure10 ?? K.emptyString)"
         }
         if currentDessert.strIngredient11?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient11 ?? "") - \(currentDessert.strMeasure11 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient11 ?? K.emptyString) - \(currentDessert.strMeasure11 ?? K.emptyString)"
         }
         if currentDessert.strIngredient12?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient12 ?? "") - \(currentDessert.strMeasure12 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient12 ?? K.emptyString) - \(currentDessert.strMeasure12 ?? K.emptyString)"
         }
         if currentDessert.strIngredient13?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient13 ?? "") - \(currentDessert.strMeasure13 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient13 ?? K.emptyString) - \(currentDessert.strMeasure13 ?? K.emptyString)"
         }
         if currentDessert.strIngredient14?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient14 ?? "") - \(currentDessert.strMeasure14 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient14 ?? K.emptyString) - \(currentDessert.strMeasure14 ?? K.emptyString)"
         }
         if currentDessert.strIngredient15?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient15 ?? "") - \(currentDessert.strMeasure15 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient15 ?? K.emptyString) - \(currentDessert.strMeasure15 ?? K.emptyString)"
         }
         if currentDessert.strIngredient16?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient16 ?? "") - \(currentDessert.strMeasure16 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient16 ?? K.emptyString) - \(currentDessert.strMeasure16 ?? K.emptyString)"
         }
         if currentDessert.strIngredient17?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient17 ?? "") - \(currentDessert.strMeasure17 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient17 ?? K.emptyString) - \(currentDessert.strMeasure17 ?? K.emptyString)"
         }
         if currentDessert.strIngredient18?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient18 ?? "") - \(currentDessert.strMeasure18 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient18 ?? K.emptyString) - \(currentDessert.strMeasure18 ?? K.emptyString)"
         }
         if currentDessert.strIngredient19?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient19 ?? "") - \(currentDessert.strMeasure19 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient19 ?? K.emptyString) - \(currentDessert.strMeasure19 ?? K.emptyString)"
         }
         if currentDessert.strIngredient20?.count ?? 0 > 2 {
-            ingredientsTextView.text += "\n\(currentDessert.strIngredient20 ?? "") - \(currentDessert.strMeasure20 ?? "")"
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient20 ?? K.emptyString) - \(currentDessert.strMeasure20 ?? K.emptyString)"
         }
         
         
@@ -138,8 +137,8 @@ class DetailViewController: UIViewController {
                 case .success(let thumbnail):
                     self.mealImageView.image = thumbnail
                 case .failure(let error):
-                    self.mealImageView.image = UIImage(systemName: "photo.on.rectangle")
-                    print("zzz Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                    self.mealImageView.image = UIImage(systemName: K.defaultImageName)
+                    print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
                 }
             }
         }
@@ -181,24 +180,24 @@ class DetailViewController: UIViewController {
         let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
-        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        let shakeAnimation = CABasicAnimation(keyPath: K.keyPath)
         shakeAnimation.duration = 0.1
         shakeAnimation.repeatCount = 1
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y + 10))
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
         
-        heartButton.layer.add(shakeAnimation, forKey: "position")
+        heartButton.layer.add(shakeAnimation, forKey: K.keyPath)
         hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if isFavorite == true {
             AudioServicesPlaySystemSound(downSoundId)
-            CoreDataController.deleteFavorite(id: currentDessertId ?? "")
-            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            CoreDataController.deleteFavorite(id: currentDessertId ?? K.emptyString)
+            heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
             isFavorite = false
         } else {
             AudioServicesPlaySystemSound(upSoundId)
-            let newFavObject: Favorite = Favorite(id: currentDessertId ?? "")
+            let newFavObject: Favorite = Favorite(id: currentDessertId ?? K.emptyString)
             CoreDataController.saveFavorite()
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)
             isFavorite = true
         }
         

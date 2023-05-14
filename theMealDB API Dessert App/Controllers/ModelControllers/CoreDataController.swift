@@ -12,7 +12,7 @@ class CoreDataController {
     
     //MARK: - Properties
     static var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "theMealDB_API_Dessert_App")
+        let container = NSPersistentContainer(name: K.containerName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
@@ -24,7 +24,7 @@ class CoreDataController {
     static var context: NSManagedObjectContext { persistentContainer.viewContext }
     
     static var fetchRequestForAll: NSFetchRequest<Favorite> = {
-        let request = NSFetchRequest <Favorite>(entityName: "Favorite")
+        let request = NSFetchRequest <Favorite>(entityName: K.entityName)
         request.predicate = NSPredicate(value: true)
         return request
     }()
@@ -35,7 +35,7 @@ class CoreDataController {
         var favArray: [String] = []
         
         for fav in favDict {
-            favArray.append(fav.id ?? "")
+            favArray.append(fav.id ?? K.emptyString)
         }
         
         return favArray

@@ -10,8 +10,8 @@ import UIKit
 class APIController {
     
     //MARK: - Properties
-    static let listEndpoint = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert")
-    static let detailEndpoint = URL(string: "https://themealdb.com/api/json/v1/1/lookup.php?i=")
+    static let listEndpoint = URL(string: K.listURL)
+    static let detailEndpoint = URL(string: K.detailURL)
     
     //MARK: - Helper Functions
     static func fetchAllDesserts(completion: @escaping (Result<[ListObject], APIError>) -> Void) {

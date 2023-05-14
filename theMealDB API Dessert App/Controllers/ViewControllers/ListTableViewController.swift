@@ -27,7 +27,7 @@ class ListTableViewController: UIViewController {
     override func viewDidLoad() {
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.register(UINib(nibName: "DessertTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomDessertCell")
+        listTableView.register(UINib(nibName: K.nibName, bundle: nil), forCellReuseIdentifier: K.customCellId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,16 +78,16 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomDessertCell", for: indexPath) as! DessertTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.customCellId, for: indexPath) as! DessertTableViewCell
         let dessert = desserts[indexPath.row]
         
         cell.delegate = self
         cell.listObject = dessert
         
         if favorites.contains(dessert.idMeal) {
-            cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)
         } else {
-            cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            cell.heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
         }
 
         return cell
@@ -98,12 +98,12 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "toDetailVC", sender: self)
+        self.performSegue(withIdentifier: K.toDetailSegueId, sender: self)
     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailVC" {
+        if segue.identifier == K.toDetailSegueId {
             guard let indexPath = listTableView.indexPathForSelectedRow,
                   let destinationVC = segue.destination as? DetailViewController else { return }
             let dessertIdToSend = desserts[indexPath.row].idMeal
