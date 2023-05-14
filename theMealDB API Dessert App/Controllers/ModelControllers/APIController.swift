@@ -102,6 +102,7 @@ class APIController {
     
 } //End of class
 
+//MARK: - Error Enum
 enum APIError: LocalizedError {
     
     case invalidURL
