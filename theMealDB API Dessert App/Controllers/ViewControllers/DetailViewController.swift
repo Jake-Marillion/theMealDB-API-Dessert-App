@@ -66,9 +66,71 @@ class DetailViewController: UIViewController {
     //MARK: - Helper Functions
     func assignValues() {
         guard let currentDessert = currentDessertArray?.first else { return }
-        
+        ingredientsTextView.text = ""
         mealNameLabel.text = currentDessert.strMeal
-        //ingredientsTextView.text = currentDessert.strIngredient1
+        
+        if currentDessert.strIngredient1?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\(currentDessert.strIngredient1 ?? "") - \(currentDessert.strMeasure1 ?? "")"
+        }
+        if currentDessert.strIngredient2?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient2 ?? "") - \(currentDessert.strMeasure2 ?? "")"
+        }
+        if currentDessert.strIngredient3?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient3 ?? "") - \(currentDessert.strMeasure3 ?? "")"
+        }
+        if currentDessert.strIngredient4?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient4 ?? "") - \(currentDessert.strMeasure4 ?? "")"
+        }
+        if currentDessert.strIngredient5?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient5 ?? "") - \(currentDessert.strMeasure5 ?? "")"
+        }
+        if currentDessert.strIngredient6?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient6 ?? "") - \(currentDessert.strMeasure6 ?? "")"
+        }
+        if currentDessert.strIngredient7?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient7 ?? "") - \(currentDessert.strMeasure7 ?? "")"
+        }
+        if currentDessert.strIngredient8?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient8 ?? "") - \(currentDessert.strMeasure8 ?? "")"
+        }
+        if currentDessert.strIngredient9?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient9 ?? "") - \(currentDessert.strMeasure9 ?? "")"
+        }
+        if currentDessert.strIngredient10?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient10 ?? "") - \(currentDessert.strMeasure10 ?? "")"
+        }
+        if currentDessert.strIngredient11?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient11 ?? "") - \(currentDessert.strMeasure11 ?? "")"
+        }
+        if currentDessert.strIngredient12?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient12 ?? "") - \(currentDessert.strMeasure12 ?? "")"
+        }
+        if currentDessert.strIngredient13?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient13 ?? "") - \(currentDessert.strMeasure13 ?? "")"
+        }
+        if currentDessert.strIngredient14?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient14 ?? "") - \(currentDessert.strMeasure14 ?? "")"
+        }
+        if currentDessert.strIngredient15?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient15 ?? "") - \(currentDessert.strMeasure15 ?? "")"
+        }
+        if currentDessert.strIngredient16?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient16 ?? "") - \(currentDessert.strMeasure16 ?? "")"
+        }
+        if currentDessert.strIngredient17?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient17 ?? "") - \(currentDessert.strMeasure17 ?? "")"
+        }
+        if currentDessert.strIngredient18?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient18 ?? "") - \(currentDessert.strMeasure18 ?? "")"
+        }
+        if currentDessert.strIngredient19?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient19 ?? "") - \(currentDessert.strMeasure19 ?? "")"
+        }
+        if currentDessert.strIngredient20?.count ?? 0 > 2 {
+            ingredientsTextView.text += "\n\(currentDessert.strIngredient20 ?? "") - \(currentDessert.strMeasure20 ?? "")"
+        }
+        
+        
         instructionsTextView.text = currentDessert.strInstructions
         APIController.fetchThumbnailFor(thumbnailId: currentDessert.strMealThumb) { result in
             DispatchQueue.main.async {
