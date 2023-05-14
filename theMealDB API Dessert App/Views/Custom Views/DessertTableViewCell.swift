@@ -64,6 +64,7 @@ class DessertTableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         guard let defaultImage: UIImage = UIImage(systemName: K.heart) else { return }
+        let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003
         let shakeAnimation = CABasicAnimation(keyPath: K.keyPath)
@@ -77,10 +78,12 @@ class DessertTableViewCell: UITableViewCell {
         if heartButton.currentImage == UIImage(systemName: K.filledHeart) {
             AudioServicesPlaySystemSound(downSoundId)
             delegate?.removeFromFavoritesArray(name: name)
+            hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
             heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
         } else {
             AudioServicesPlaySystemSound(upSoundId)
             delegate?.addToFavoritesArray(name: name)
+            hapticFeedbackGenerator.impactOccurred(intensity: 0.6)
             heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)
         }
     }

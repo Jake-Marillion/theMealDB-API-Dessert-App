@@ -187,14 +187,15 @@ class DetailViewController: UIViewController {
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
         
         heartButton.layer.add(shakeAnimation, forKey: K.keyPath)
-        hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
         if isFavorite == true {
+            hapticFeedbackGenerator.impactOccurred(intensity: 1.0)
             AudioServicesPlaySystemSound(downSoundId)
             CoreDataController.deleteFavorite(id: currentDessertId ?? K.emptyString)
             heartButton.setImage(UIImage(systemName: K.heart), for: .normal)
             isFavorite = false
         } else {
             AudioServicesPlaySystemSound(upSoundId)
+            hapticFeedbackGenerator.impactOccurred(intensity: 0.6)
             let newFavObject: Favorite = Favorite(id: currentDessertId ?? K.emptyString)
             CoreDataController.saveFavorite()
             heartButton.setImage(UIImage(systemName: K.filledHeart), for: .normal)

@@ -38,4 +38,4 @@ final class theMealDB_API_Dessert_AppUITests: XCTestCase {
             }
         }
     }
-}
+} //End of class

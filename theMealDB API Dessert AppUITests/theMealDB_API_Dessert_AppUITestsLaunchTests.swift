@@ -29,4 +29,4 @@ final class theMealDB_API_Dessert_AppUITestsLaunchTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
-}
+} //End of class
