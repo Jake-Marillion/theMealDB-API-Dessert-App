@@ -35,7 +35,7 @@ class ListTableViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
         
-        APIController.fetchDesserts { result in
+        APIController.fetchAllDesserts { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let desserts):

@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
                 case .success(let desserts):
                     self.currentDessertArray = desserts
                     self.assignValues()
-                    
+                    print("zzz \(self.currentDessertArray)")
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
                 }

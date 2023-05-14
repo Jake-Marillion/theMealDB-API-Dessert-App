@@ -14,7 +14,7 @@ class APIController {
     static let detailEndpoint = URL(string: "https://themealdb.com/api/json/v1/1/lookup.php?i=")
     
     //MARK: - Helper Functions
-    static func fetchDesserts(completion: @escaping (Result<[ListObject], APIError>) -> Void) {
+    static func fetchAllDesserts(completion: @escaping (Result<[ListObject], APIError>) -> Void) {
         guard let listEndpoint = listEndpoint else { return completion(.failure(.invalidURL)) }
 
         URLSession.shared.dataTask(with: listEndpoint) { data, response, error in
