@@ -71,21 +71,18 @@ class DessertTableViewCell: UITableViewCell {
         shakeAnimation.repeatCount = 1
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y + 10))
         shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: heartButton.center.x, y: heartButton.center.y - 10))
-        
         heartButton.layer.add(shakeAnimation, forKey: "position")
+        let name = dessertNameLabel.text ?? ""
         
         if heartButton.currentImage == UIImage(systemName: "heart.fill") {
             AudioServicesPlaySystemSound(downSoundId)
-            CoreDataController.deleteFavorite(id: "")
+            delegate?.removeFromFavoritesArray(name: name)
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
         } else {
             AudioServicesPlaySystemSound(upSoundId)
-            let newFavObject: Favorite = Favorite(id: "")
-            CoreDataController.saveFavorite()
+            delegate?.addToFavoritesArray(name: name)
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
-            //MARK: - TODO - Why am I handing this off to the delegate here??  Why not perform all UI Changes here and then hand off the id for save or delete or just do it all here?  How do I get the current ID here??  Once known replace empty strings Jake.
-        delegate?.updateFavoritesArray(id: "")
     }
     
 } //End of class

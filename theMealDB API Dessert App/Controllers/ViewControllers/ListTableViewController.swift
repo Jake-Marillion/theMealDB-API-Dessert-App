@@ -8,7 +8,8 @@
 import UIKit
 
 protocol UpdateFavoriteDelegate: AnyObject {
-    func updateFavoritesArray(id: String)
+    func addToFavoritesArray(name: String)
+    func removeFromFavoritesArray(name: String)
 } //End of protocol
 
 class ListTableViewController: UIViewController {
@@ -48,7 +49,6 @@ class ListTableViewController: UIViewController {
         }
         
         favorites = CoreDataController.fetchAllFavorites()
-        print("zzzz \(favorites)")
         listTableView.reloadData()
         
     }
@@ -122,8 +122,19 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - Update Favorites
 extension ListTableViewController: UpdateFavoriteDelegate {
     
-    func updateFavoritesArray(id: String) {
+    func addToFavoritesArray(name: String) {
+        guard let index = desserts.firstIndex(where: { $0.strMeal == name}) else { return }
+        let id = desserts[index].idMeal
         favorites.append(id)
+        let newFavObject: Favorite = Favorite(id: id)
+        CoreDataController.saveFavorite()
+    }
+    
+    func removeFromFavoritesArray(name: String) {
+        guard let index = desserts.firstIndex(where: { $0.strMeal == name}) else { return }
+        let id = desserts[index].idMeal
+        favorites = favorites.filter{$0 != id}
+        CoreDataController.deleteFavorite(id: id)
     }
     
 } //End of extension

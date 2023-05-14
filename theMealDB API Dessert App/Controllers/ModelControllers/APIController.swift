@@ -67,7 +67,6 @@ class APIController {
                 
                 var arrayOfDesserts: [DetailObject] = []
                 
-                print("zzz \(dessert)")
                 try arrayOfDesserts.append(dessert ?? DetailObject(from: Decoder.self as! Decoder))
 
                 return completion(.success(arrayOfDesserts))
