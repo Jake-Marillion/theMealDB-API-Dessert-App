@@ -1,7 +1,7 @@
 # theMealDB-API-Dessert-App
 Take home project using theMealDB API found at -> https://www.themealdb.com/api.php
 
-On the main screen users are greeted with an alphbetical list of desserts.  Users are able to favorite each dessert.  When the favorite heart is tapped the user hears a sound and feels a vibration.  An animation also plays.
+On the main screen users are greeted with an alphbetical list of desserts.  Users are able to favorite each dessert.  When the favorite heart is tapped, the user hears a sound, feels a vibration and an animation plays.
 
 ![Simulator Screen Shot - iPhone 14 Pro - 2023-05-14 at 15 34 01](https://github.com/Jake-Marillion/theMealDB-API-Dessert-App/assets/110437842/912137c5-b45a-4914-bd80-0ba92470720c)
 
