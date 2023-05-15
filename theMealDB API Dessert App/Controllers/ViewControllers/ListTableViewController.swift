@@ -44,6 +44,7 @@ class ListTableViewController: UIViewController {
                     
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                    self.presentAlertToUser()
                 }
             }
         }
@@ -67,6 +68,13 @@ class ListTableViewController: UIViewController {
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    func presentAlertToUser() {
+        let alertController = UIAlertController(title: K.listErrorAlertTitle, message: K.listErrorAlertMessage, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: K.ok, style: .cancel)
+        
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true)
+    }
 
 } //End of class
 

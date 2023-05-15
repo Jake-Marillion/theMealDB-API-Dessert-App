@@ -63,7 +63,6 @@ class DessertTableViewCell: UITableViewCell {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        guard let defaultImage: UIImage = UIImage(systemName: K.heart) else { return }
         let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         let upSoundId: SystemSoundID = 1004
         let downSoundId: SystemSoundID = 1003

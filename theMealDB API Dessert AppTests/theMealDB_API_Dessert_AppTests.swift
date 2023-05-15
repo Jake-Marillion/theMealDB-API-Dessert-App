@@ -33,26 +33,26 @@ final class theMealDB_API_Dessert_AppTests: XCTestCase {
         }
     }
 
-    //MARK: - CoreData Tests, uncomment
-//    func testFavoritesCall() {
-//        let favorites = CoreDataController.fetchAllFavorites()
-//        XCTAssertEqual(favorites, ["52768", "52928", "52898", "52893"])
-//    }
+    //MARK: - CoreData Tests
+    func testFavoritesCall() {
+        let favorites = CoreDataController.fetchAllFavorites()
+        XCTAssertEqual(favorites, ["52768", "52928", "52898", "52893"])
+    }
 
-//    func testSaveFavorite() {
-//        let newFavObject: Favorite = Favorite(id: "1234")
-//        CoreDataController.saveFavorite()
-//
-//        let favorites = CoreDataController.fetchAllFavorites()
-//        XCTAssertEqual(favorites.count, 5)
-//        XCTAssertTrue(favorites.contains("1234"))
-//    }
+    func testSaveFavorite() {
+        let newFavObject: Favorite = Favorite(id: "1234")
+        CoreDataController.saveFavorite()
+
+        let favorites = CoreDataController.fetchAllFavorites()
+        XCTAssertEqual(favorites.count, 5)
+        XCTAssertTrue(favorites.contains("1234"))
+    }
     
-//    func testDeleteFavorite() {
-//        CoreDataController.deleteFavorite(id: "1234")
-//
-//        let favorites = CoreDataController.fetchAllFavorites()
-//        XCTAssertFalse(favorites.contains("1234"))
-//    }
+    func testDeleteFavorite() {
+        CoreDataController.deleteFavorite(id: "1234")
+
+        let favorites = CoreDataController.fetchAllFavorites()
+        XCTAssertFalse(favorites.contains("1234"))
+    }
 
 } //End of class

@@ -13,6 +13,7 @@ struct K {
     static let filledHeart = "heart.fill"
     static let heart = "heart"
     static let keyPath = "position"
+    static let ok = "Ok"
     
     //MARK: - API
     static let listURL = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
@@ -26,9 +27,14 @@ struct K {
     static let nibName = "DessertTableViewCell"
     static let customCellId = "CustomDessertCell"
     static let toDetailSegueId = "toDetailVC"
+    static let listErrorAlertTitle = "There was an error fetching desserts."
+    static let listErrorAlertMessage = "Please check your connection and re-open the app."
     
     //MARK: - DetailViewController
     static let navBarTitle = "Desserts"
     static let defaultImageName = "photo.on.rectangle"
+    static let detailErrorAlertTitle = "There was an error fetching this dessert."
+    static let detailErrorAlertMessage = "Please check your connection and re-open the app."
+    
     
 } //End of struct

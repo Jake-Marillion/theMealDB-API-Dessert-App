@@ -51,6 +51,7 @@ class DetailViewController: UIViewController {
                     self.assignValues()
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                    self.presentAlertToUser()
                 }
             }
         }
@@ -139,6 +140,7 @@ class DetailViewController: UIViewController {
                 case .failure(let error):
                     self.mealImageView.image = UIImage(systemName: K.defaultImageName)
                     print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+                    self.presentAlertToUser()
                 }
             }
         }
@@ -174,6 +176,14 @@ class DetailViewController: UIViewController {
         
         mealImageView.layer.cornerRadius = 10
         mealImageView.clipsToBounds = true
+    }
+    
+    func presentAlertToUser() {
+        let alertController = UIAlertController(title: K.detailErrorAlertTitle, message: K.detailErrorAlertMessage, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: K.ok, style: .cancel)
+        
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true)
     }
 
     @IBAction func heartButtonPressed(_ sender: UIButton) {
